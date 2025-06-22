@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crochet</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; }
+    .hero {
+      background-image: url('images/c2.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 1rem;
+      border-radius: 10px;
+    }
+    .product-card img {
+      height: 200px;
+      object-fit: cover;
+    }
+  </style>
+  <script>
+    if('serviceWorker' in navigator){
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then(() => console.log('PWA enabled'))
+          .catch(console.error);
+      });
+    }
+  </script>
+</head>
+<body>
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 1100">
+  <div id="cart-toast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">Item added to cart 🎉</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+  <div class="container">
+    <a class="navbar-brand" href="#">🧵 Crochet</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+       <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link " href="shop.html.html">Shop</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="d-flex align-items-center">
+      <button id="cart-btn" class="btn btn-outline-primary position-relative me-3">
+        Cart 🛒<span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+      </button>
+    </div>
+  </div>
+</nav>
+<section id="home" class="hero text-center text-white">
+  <div class="container d-flex flex-column justify-content-center align-items-center h-100">
+    <h1 class="display-4 fw-bold" style="background-color: rgba(255,192,203,0.7); padding: 0.5rem 1rem; border-radius: 10px;">Welcome to Crochet 🧶</h1>
+    <p class="lead" style="background-color: rgba(255,182,193,0.6); padding: 0.5rem 1rem; border-radius: 10px;">Soft. Handmade. Stylish. Just for You.</p>
+  </div>
+</section>
+<section id="gallery" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Gallery of Designs</h2>
+    <div class="row">
+      <div class="col-md-3 mb-4"><div class="card product-card">
+        <img src="images/c10.jpg" class="card-img-top">
+        <div class="card-body text-center"><h6 class="card-title">Boho Bag</h6><p class="card-text">Ksh 3000</p><button class="btn btn-primary">Add to Cart</button></div>
+      </div></div>
+      <div class="col-md-3 mb-4"><div class="card product-card">
+        <img src="images/c9.jpg" class="card-img-top">
+        <div class="card-body text-center"><h6 class="card-title">Crochet Top</h6><p class="card-text">Ksh 4500</p><button class="btn btn-primary">Add to Cart</button></div>
+      </div></div>
+      <div class="col-md-3 mb-4"><div class="card product-card">
+        <img src="images/baby blanket.jpg" class="card-img-top">
+        <div class="card-body text-center"><h6 class="card-title">Baby Blanket</h6><p class="card-text">Ksh 5000</p><button class="btn btn-primary">Add to Cart</button></div>
+      </div></div>
+      <div class="col-md-3 mb-4"><div class="card product-card">
+        <img src="images/flo bak.jpg" class="card-img-top">
+        <div class="card-body text-center"><h6 class="card-title">Flower Basket</h6><p class="card-text">Ksh 2000</p><button class="btn btn-primary">Add to Cart</button></div>
+      </div></div>
+      <div class="col-md-3 mb-4"><div class="card product-card">
+        <img src="images/c4.jpg" class="card-img-top">
+        <div class="card-body text-center"><h6 class="card-title">Beach Wear</h6><p class="card-text">Ksh 2000</p><button class="btn btn-primary">Add to Cart</button></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+<section id="shop" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Shop</h2>
+    <div class="row">
+      <div class="col-md-4"><div class="card product-card">
+        <img src="images/Crochet Beanie.jpg" class="card-img-top">
+        <div class="card-body"><h5 class="card-title">Crochet Beanie</h5><p class="card-text">Ksh 1500</p><button class="btn btn-primary">Add to Cart</button></div>
+      </div></div>
+      <div class="col-md-4"><div class="card product-card">
+        <img src="images/c2.jpg" class="card-img-top">
+        <div class="card-body"><h5 class="card-title">Amigurumi key holder</h5><p class="card-text">Ksh 2500</p><button class="btn btn-primary">Add to Cart</button></div>
+      </div></div>
+      <div class="col-md-4"><div class="card product-card">
+        <img src="images/Cozy Blanket.jpg" class="card-img-top">
+        <div class="card-body"><h5 class="card-title">Cozy Blanket</h5><p class="card-text">Ksh 6000</p><button class="btn btn-primary">Add to Cart</button></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+<section id="custom-order" class="py-5 bg-white">
+  <div class="container">
+    <h2 class="text-center mb-4">Custom Order Request</h2>
+    <form id="customOrderForm" class="row g-3" onsubmit="sendCustomOrder(event)">
+      <div class="col-md-6">
+        <label for="itemType" class="form-label">Item Type</label>
+        <select id="itemType" class="form-select" required onchange="toggleOtherInput(this)">
+          <option selected disabled value="">Choose an item</option>
+          <option>Beanie</option>
+          <option>Blanket</option>
+          <option>Top</option>
+          <option>Scarf</option>
+          <option>Amigurumi Toy</option>
+          <option value="Other">Other (please specify)</option>
+        </select>
+      </div>
+      <div class="col-md-6" id="otherItemGroup" style="display:none;">
+        <label for="otherItem" class="form-label">Other Item</label>
+        <input type="text" class="form-control" id="otherItem" placeholder="Describe the custom item">
+      </div>
+
+      <div class="col-md-4">
+        <label for="waist" class="form-label">Waist (inches)</label>
+        <input type="number" class="form-control" id="waist" placeholder="e.g. 28">
+      </div>
+      <div class="col-md-4">
+        <label for="breast" class="form-label">Breast (inches)</label>
+        <input type="number" class="form-control" id="breast" placeholder="e.g. 34">
+      </div>
+      <div class="col-md-4">
+        <label for="hips" class="form-label">Hips (inches)</label>
+        <input type="number" class="form-control" id="hips" placeholder="e.g. 36">
+      </div>
+
+      <div class="col-md-6">
+        <label for="color" class="form-label">Preferred Color</label>
+        <input type="text" class="form-control" id="color" placeholder="e.g. Sky Blue" required>
+      </div>
+
+      <div class="col-md-6">
+        <label for="nameEmbroidery" class="form-label">Name Embroidery (optional)</label>
+        <input type="text" class="form-control" id="nameEmbroidery" placeholder="Name to stitch">
+      </div>
+
+      <div class="col-md-6">
+        <label for="email" class="form-label">Your Email</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+
+      <div class="col-12">
+        <label for="additionalDetails" class="form-label">Additional Details</label>
+        <textarea class="form-control" id="additionalDetails" rows="4" placeholder="Any specific request or notes..."></textarea>
+      </div>
+
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-success px-5">Send via WhatsApp</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script>
+  function toggleOtherInput(select) {
+    const otherGroup = document.getElementById('otherItemGroup');
+    if (select.value === "Other") {
+      otherGroup.style.display = 'block';
+    } else {
+      otherGroup.style.display = 'none';
+    }
+  }
+
+  function sendCustomOrder(e) {
+    e.preventDefault();
+
+    const itemType = document.getElementById('itemType').value;
+    const otherItem = document.getElementById('otherItem').value;
+    const finalItem = itemType === "Other" ? otherItem : itemType;
+
+    const waist = document.getElementById('waist').value;
+    const breast = document.getElementById('breast').value;
+    const hips = document.getElementById('hips').value;
+    const color = document.getElementById('color').value;
+    const nameEmbroidery = document.getElementById('nameEmbroidery').value;
+    const email = document.getElementById('email').value;
+    const additionalDetails = document.getElementById('additionalDetails').value;
+
+    const message = 
+      `Hello! I'd like to request a custom crochet item:%0A` +
+      `🧶 Item: ${finalItem}%0A` +
+      `📏 Measurements - Waist: ${waist}", Breast: ${breast}", Hips: ${hips}"%0A` +
+      `🎨 Preferred Color: ${color}%0A` +
+      `🧵 Name Embroidery: ${nameEmbroidery || 'None'}%0A` +
+      `📧 Email: ${email}%0A` +
+      `📝 Additional Notes: ${additionalDetails || 'None'}`;
+
+    const whatsappNumber = '254712345678'; // Replace with your number
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+  }
+</script>
+
+<section id="contact" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Contact Us</h2>
+    <form class="row g-3">
+      <div class="col-md-6">
+        <label for="name" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+      <div class="col-md-6">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+      <div class="col-12">
+        <label for="message" class="form-label">Your Message</label>
+        <textarea class="form-control" id="message" rows="4" required></textarea>
+      </div>
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary px-5">Send Message</button>
+      </div>
+    </form>
+  </div>
+</section>
+<div id="cart-modal" class="modal fade"><div class="modal-dialog modal-lg"><div class="modal-content">
+  <div class="modal-header"><h5 class="modal-title">Your Cart</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+  <div class="modal-body"><ul id="cart-items" class="list-group"></ul><h5>Total: Ksh <span id="cart-total">0.00</span></h5></div>
+  <div class="modal-footer"><button id="checkout-btn" class="btn btn-success">Order via WhatsApp</button></div>
+</div></div></div>
+<footer class="bg-dark text-white text-center py-3"><small>&copy; 2025 Design by Paps-designs 0763497422</small></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+const updateCartUI = () => {
+  document.getElementById('cart-count').textContent = cart.length;
+  const cartList = document.getElementById('cart-items'); cartList.innerHTML = '';
+  let total = 0;
+  cart.forEach((item, i) => {
+    total += item.price;
+    cartList.innerHTML += `<li class="list-group-item d-flex justify-content-between">${item.title} – Ksh ${item.price}<button class="btn btn-sm btn-danger remove-btn" data-index="${i}">×</button></li>`;
+  });
+  document.getElementById('cart-total').textContent = total.toFixed(2);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  document.querySelectorAll('.remove-btn').forEach(btn => btn.onclick = e => { cart.splice(e.target.dataset.index,1); updateCartUI(); });
+};
+const showToast = () => {
+  const toastEl = document.getElementById('cart-toast');
+  const toast = new bootstrap.Toast(toastEl);
+  toast.show();
+};
+document.querySelectorAll('.product-card .btn').forEach(btn => {
+  btn.onclick = () => {
+    const card = btn.closest('.product-card');
+    cart.push({title: card.querySelector('.card-title').textContent, price: parseFloat(card.querySelector('.card-text').textContent.replace(/[^\d.]/g, ''))});
+    updateCartUI();
+    showToast();
+  };
+});
+document.getElementById('cart-btn').onclick = () => { new bootstrap.Modal(document.getElementById('cart-modal')).show(); updateCartUI(); };
+document.getElementById('checkout-btn').onclick = () => {
+  if (!cart.length) return;
+  const msg = cart.map(i => `${i.title} — Ksh ${i.price}`).join('%0A') + `%0ATotal: Ksh ${cart.reduce((a,b)=>a+b.price,0).toFixed(2)}`;
+  window.open(`https://wa.me/254712345678?text=Hello! I'd like to order:%0A${msg}`, '_blank');
+};
+updateCartUI();
+</script>
+</body>
+</html>
